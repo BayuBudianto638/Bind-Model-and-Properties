@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace WebApplication1.Controllers
 {
@@ -31,9 +32,10 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
+        [ServiceFilter(typeof(APIMassAssignmentFilter))]
         public ActionResult PostData([FromBody] ModelA model)
         {
             return Ok(model);
-        }
+        }        
     }
 }
